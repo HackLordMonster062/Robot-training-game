@@ -4,8 +4,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody))]
+[RequireComponent(typeof(Animation))]
 public class RobotController : MonoBehaviour {
-    [SerializeField] AnimationCurve curve;
     [SerializeField] float baseSpeed;
     [SerializeField] float baseRotationSpeed;
     [SerializeField] float baseDuration;
@@ -16,13 +16,11 @@ public class RobotController : MonoBehaviour {
     public bool IsActive { get; private set; }
 
     Rigidbody _rb;
+	Animator _animator;
 
     void Start() {
         _rb = GetComponent<Rigidbody>();
-    }
-
-    void Update() {
-        
+		_animator = GetComponent<Animator>();
     }
 
     public void GoForward(float amplitude, float time) {
@@ -50,6 +48,7 @@ public class RobotController : MonoBehaviour {
 		float halfDuration = duration / 2f;
 
 		startAction?.Invoke();
+		_animator.SetTrigger("StartMoving");
 
 		while (elapsedTime < duration) {
 			elapsedTime += Time.fixedDeltaTime;
@@ -71,6 +70,7 @@ public class RobotController : MonoBehaviour {
 		float halfDuration = duration / 2f;
 
 		startAction?.Invoke();
+		_animator.SetBool("Spinning", true);
 
 		while (elapsedTime < duration) {
 			elapsedTime += Time.fixedDeltaTime;
@@ -85,5 +85,6 @@ public class RobotController : MonoBehaviour {
 		}
 
 		endAction?.Invoke();
+		_animator.SetBool("Spinning", false);
 	}
 }
