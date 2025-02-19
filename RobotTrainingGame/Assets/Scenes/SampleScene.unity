@@ -292,7 +292,7 @@ MonoBehaviour:
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_DisabledColor: {r: 0.5372549, g: 0.5372549, b: 0.5372549, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
@@ -311,8 +311,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 177066058}
-        m_TargetAssemblyTypeName: CommandGenerator, Assembly-CSharp
+      - m_Target: {fileID: 1884297795}
+        m_TargetAssemblyTypeName: ControlPanel, Assembly-CSharp
         m_MethodName: SendCommand
         m_Mode: 3
         m_Arguments:
@@ -668,7 +668,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bdd3f7e482f944a45bb01b0333a8b310, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minAmplitude: 0.1
+  minAmplitude: 1
   maxAmplitude: 15
   tuningAmount: 0.5
 --- !u!114 &523706262
@@ -802,7 +802,7 @@ MonoBehaviour:
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_DisabledColor: {r: 0.5372549, g: 0.5372549, b: 0.5372549, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
@@ -821,8 +821,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 177066058}
-        m_TargetAssemblyTypeName: CommandGenerator, Assembly-CSharp
+      - m_Target: {fileID: 1884297795}
+        m_TargetAssemblyTypeName: ControlPanel, Assembly-CSharp
         m_MethodName: SendCommand
         m_Mode: 3
         m_Arguments:
@@ -1165,7 +1165,7 @@ MonoBehaviour:
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_DisabledColor: {r: 0.5372549, g: 0.5372549, b: 0.5372549, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
@@ -1184,8 +1184,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 523706261}
-        m_TargetAssemblyTypeName: CommandReceiver, Assembly-CSharp
+      - m_Target: {fileID: 1884297795}
+        m_TargetAssemblyTypeName: ControlPanel, Assembly-CSharp
         m_MethodName: TuneDown
         m_Mode: 1
         m_Arguments:
@@ -1502,7 +1502,7 @@ MonoBehaviour:
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_DisabledColor: {r: 0.5372549, g: 0.5372549, b: 0.5372549, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
@@ -1521,8 +1521,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 177066058}
-        m_TargetAssemblyTypeName: CommandGenerator, Assembly-CSharp
+      - m_Target: {fileID: 1884297795}
+        m_TargetAssemblyTypeName: ControlPanel, Assembly-CSharp
         m_MethodName: SendCommand
         m_Mode: 3
         m_Arguments:
@@ -1827,7 +1827,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: MORE
+  m_text: LESS
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -2047,7 +2047,7 @@ MonoBehaviour:
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_DisabledColor: {r: 0.5372549, g: 0.5372549, b: 0.5372549, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
@@ -2066,8 +2066,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 177066058}
-        m_TargetAssemblyTypeName: CommandGenerator, Assembly-CSharp
+      - m_Target: {fileID: 1884297795}
+        m_TargetAssemblyTypeName: ControlPanel, Assembly-CSharp
         m_MethodName: SendCommand
         m_Mode: 3
         m_Arguments:
@@ -2316,7 +2316,7 @@ MonoBehaviour:
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_DisabledColor: {r: 0.5377358, g: 0.5377358, b: 0.5377358, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
@@ -2335,8 +2335,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 523706261}
-        m_TargetAssemblyTypeName: CommandReceiver, Assembly-CSharp
+      - m_Target: {fileID: 1884297795}
+        m_TargetAssemblyTypeName: ControlPanel, Assembly-CSharp
         m_MethodName: TuneUp
         m_Mode: 1
         m_Arguments:
@@ -2585,7 +2585,7 @@ MonoBehaviour:
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_DisabledColor: {r: 0.5372549, g: 0.5372549, b: 0.5372549, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
@@ -2604,8 +2604,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 177066058}
-        m_TargetAssemblyTypeName: CommandGenerator, Assembly-CSharp
+      - m_Target: {fileID: 1884297795}
+        m_TargetAssemblyTypeName: ControlPanel, Assembly-CSharp
         m_MethodName: SendCommand
         m_Mode: 3
         m_Arguments:
@@ -2666,6 +2666,7 @@ GameObject:
   - component: {fileID: 1884297794}
   - component: {fileID: 1884297793}
   - component: {fileID: 1884297792}
+  - component: {fileID: 1884297795}
   m_Layer: 5
   m_Name: ControlPanel
   m_TagString: Untagged
@@ -2762,6 +2763,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1884297790}
   m_CullTransparentMesh: 1
+--- !u!114 &1884297795
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1884297790}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 83e156c65981f6249ad6da519e5059a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  controlPanel: {fileID: 1884297791}
+  tuningPanel: {fileID: 1347027936}
+  generator: {fileID: 177066058}
 --- !u!1 &2098394498
 GameObject:
   m_ObjectHideFlags: 0
