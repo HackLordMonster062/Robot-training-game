@@ -10,6 +10,9 @@ public class RobotController : MonoBehaviour {
     [SerializeField] float baseRotationSpeed;
     [SerializeField] float baseDuration;
 
+	public event System.Action startAction;
+	public event System.Action endAction;
+
     public bool IsActive { get; private set; }
 
     Rigidbody _rb;
@@ -46,7 +49,7 @@ public class RobotController : MonoBehaviour {
 		float elapsedTime = 0f;
 		float halfDuration = duration / 2f;
 
-        IsActive = true;
+		startAction?.Invoke();
 
 		while (elapsedTime < duration) {
 			elapsedTime += Time.fixedDeltaTime;
@@ -60,14 +63,14 @@ public class RobotController : MonoBehaviour {
 			yield return new WaitForFixedUpdate();
 		}
 
-        IsActive = false;
+        endAction?.Invoke();
 	}
 
 	IEnumerator RotateCoroutine(float rotateSpeed, float duration) {
 		float elapsedTime = 0f;
 		float halfDuration = duration / 2f;
 
-		IsActive = true;
+		startAction?.Invoke();
 
 		while (elapsedTime < duration) {
 			elapsedTime += Time.fixedDeltaTime;
@@ -81,6 +84,6 @@ public class RobotController : MonoBehaviour {
 			yield return new WaitForFixedUpdate();
 		}
 
-		IsActive = false;
+		endAction?.Invoke();
 	}
 }

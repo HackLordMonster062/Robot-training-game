@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a22d0b22b25095f498dcf11ee2491031, type: 3}
   m_Name: Drop
   m_EditorClassIdentifier: 
-  Name: Pickup
-  MainActions: 04000000
+  Name: Drop
+  MainActions: 05000000
   SideEffects: 

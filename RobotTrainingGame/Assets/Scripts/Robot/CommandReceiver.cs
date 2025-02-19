@@ -7,8 +7,10 @@ using UnityEngine;
 public class CommandReceiver : MonoBehaviour {
     [SerializeField] float minAmplitude;
     [SerializeField] float maxAmplitude;
+    [SerializeField] float tuningAmount;
 
     Dictionary<Command, float> _commandAmplitudes;
+    Command _currCommand;
 
     RobotController _controller;
 
@@ -16,6 +18,12 @@ public class CommandReceiver : MonoBehaviour {
         _controller = GetComponent<RobotController>();
 
         _commandAmplitudes = new();
+
+        _controller.startAction += () => ControlPanel.instance.ToggleControlPanel(false);
+        _controller.endAction += () => {
+            ControlPanel.instance.ToggleControlPanel(true);
+            ControlPanel.instance.ToggleTuningPanel(true);
+        };
     }
 
     void Update() {
@@ -34,7 +42,19 @@ public class CommandReceiver : MonoBehaviour {
         foreach (Action action in command.MainActions) {
             PerformAction(action, amplitude);
         }
+
+        _currCommand = command;
     }
+
+    public void TuneDown() {
+        float currAmplitude = _commandAmplitudes[_currCommand];
+        _commandAmplitudes[_currCommand] = Mathf.Max(currAmplitude - tuningAmount, minAmplitude);
+	}
+
+    public void TuneUp() {
+        float currAmplitude = _commandAmplitudes[_currCommand];
+        _commandAmplitudes[_currCommand] = Mathf.Min(currAmplitude + tuningAmount, maxAmplitude);
+	}
 
     private void PerformAction(Action action, float amplitude) {
         switch (action) {
