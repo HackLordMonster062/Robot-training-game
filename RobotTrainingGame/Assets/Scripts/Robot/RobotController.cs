@@ -10,6 +10,10 @@ public class RobotController : MonoBehaviour {
     [SerializeField] float baseRotationSpeed;
     [SerializeField] float baseDuration;
 
+	[Space]
+    [SerializeField] float pickupDistance;
+    [SerializeField] LayerMask boxLayer;
+
 	public event System.Action startAction;
 	public event System.Action endAction;
 
@@ -36,12 +40,18 @@ public class RobotController : MonoBehaviour {
 	}
 
     public void Pickup(float amplitude) {
-
+		_animator.SetTrigger("Pickup");
     }
 
     public void Drop(float amplitude) {
+		_animator.SetTrigger("Pickup");
+	}
 
-    }
+	public void PickBox(int _) {
+		if (Physics.Raycast(transform.position, transform.forward, out RaycastHit info, pickupDistance, boxLayer)) {
+
+		}
+	}
 
     IEnumerator MoveCoroutine(float speed, float duration) {
 		float elapsedTime = 0f;

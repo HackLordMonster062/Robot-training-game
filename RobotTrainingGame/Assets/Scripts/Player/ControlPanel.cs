@@ -42,6 +42,8 @@ public class ControlPanel : MonoBehaviour {
         foreach (Button button in _controlButtons) {
             button.interactable = enabled;
         }
+
+        if (!enabled) ToggleTuningPanel(false);
     }
 
     public void ToggleTuningPanel(bool enabled) {
