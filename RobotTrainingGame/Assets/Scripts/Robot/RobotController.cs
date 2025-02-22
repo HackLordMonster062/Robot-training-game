@@ -28,6 +28,7 @@ public class RobotController : MonoBehaviour {
 	int _pickupSpeedID;
 	int _dropForceID;
 	int _pickupID;
+	int _dropID;
 	int _startMovingID;
 	int _spinningID;
 
@@ -38,6 +39,7 @@ public class RobotController : MonoBehaviour {
 		_pickupSpeedID = Animator.StringToHash("PickupSpeed");
 		_dropForceID = Animator.StringToHash("DropForce");
 		_pickupID = Animator.StringToHash("Pickup");
+		_dropID = Animator.StringToHash("Drop");
 		_startMovingID = Animator.StringToHash("StartMoving");
 		_spinningID = Animator.StringToHash("Spinning");
     }
@@ -62,34 +64,34 @@ public class RobotController : MonoBehaviour {
 
     public void Drop(float amplitude) {
 		_animator.SetFloat(_dropForceID, amplitude);
-		_animator.SetTrigger(_pickupID);
+		_animator.SetTrigger(_dropID);
 	}
 
 	public void PickBox(int _) {
+		endAction?.Invoke();
 		if (_box != null) return;
 
-		if (Physics.SphereCast(holdingPoint.position, pickupDistance, -holdingPoint.up, out RaycastHit info, 0, boxLayer)) {
-				print("caught");
-			if (info.collider.TryGetComponent(out Box box) && box.TryCapture(_animator.GetFloat(_pickupSpeedID))) {
+		var colliders = Physics.OverlapSphere(holdingPoint.position, pickupDistance, boxLayer);
+
+		foreach (Collider collider in colliders) {
+			if (collider.TryGetComponent(out Box box) && box.TryCapture(_animator.GetFloat(_pickupSpeedID))) {
 				box.transform.position = holdingPoint.position;
 				box.transform.parent = holdingPoint;
 
 				_box = box;
 			}
 		}
-
-		endAction?.Invoke();
 	}
 
 	public void DropBox(int _) {
+		endAction?.Invoke();
+
 		if (_box == null) return;
 
-		_box.transform.parent = holdingPoint;
+		_box.transform.parent = null;
 		_box.Throw(transform.forward * _animator.GetFloat(_dropForceID));
 
 		_box = null;
-
-		endAction?.Invoke();
 	}
 
     IEnumerator MoveCoroutine(float speed, float duration) {
@@ -135,5 +137,9 @@ public class RobotController : MonoBehaviour {
 
 		endAction?.Invoke();
 		_animator.SetBool(_spinningID, false);
+	}
+
+	private void OnDrawGizmos() {
+		Gizmos.DrawSphere(holdingPoint.position, pickupDistance);
 	}
 }
