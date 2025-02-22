@@ -108,7 +108,7 @@ public class RobotController : MonoBehaviour {
 				: (duration - elapsedTime) / halfDuration;
 
 			float currentSpeed = speed * Mathf.Clamp01(t);
-			_rb.velocity = transform.forward * currentSpeed;
+			_rb.velocity = transform.forward * currentSpeed + new Vector3(0, _rb.velocity.y, 0);
 
 			yield return new WaitForFixedUpdate();
 		}
