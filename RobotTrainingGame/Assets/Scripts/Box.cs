@@ -17,7 +17,7 @@ public class Box : MonoBehaviour {
 		if (force < minForce) return false;
 
 		if (force > maxForce) {
-			// lose
+			GameManager.instance.DestroyBox();
 		}
 
 		_rb.isKinematic = true;
@@ -30,6 +30,5 @@ public class Box : MonoBehaviour {
 		_rb.isKinematic = false;
 		_collider.enabled = true;
 		_rb.AddForce(force, ForceMode.Impulse);
-		print(force);
 	}
 }
