@@ -3,6 +3,9 @@ using UnityEngine;
 public class GameManager : MonoBehaviour {
     public static GameManager instance;
 
+    public static event System.Action OnPause;
+    public static event System.Action OnResume;
+
     [SerializeField] float initialHealth;
     [SerializeField] float damageThreshold;
 
@@ -28,10 +31,12 @@ public class GameManager : MonoBehaviour {
 
     void Win() {
         print("win");
+        OnPause?.Invoke();
     }
 
     void Lose() {
         print("lose");
+        OnPause?.Invoke();
     }
 
     public void HitWalls(float force) {
@@ -55,6 +60,10 @@ public class GameManager : MonoBehaviour {
     }
 
     public void DestroyBox() {
+        Lose();
+    }
+
+    public void TimeOut() {
         Lose();
     }
 }

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -8,6 +9,7 @@ public class ControlPanel : MonoBehaviour {
 
     [SerializeField] Transform controlPanel;
     [SerializeField] Transform tuningPanel;
+    [SerializeField] TMP_Text timer;
     [SerializeField] CommandGenerator generator;
 
     Button[] _controlButtons;
@@ -24,7 +26,11 @@ public class ControlPanel : MonoBehaviour {
 		}
     }
 
-    public void SendCommand(int index) {
+	private void OnDestroy() {
+        if (instance == this) instance = null;
+	}
+
+	public void SendCommand(int index) {
         generator.SendCommand(index);
 	}
 
@@ -51,5 +57,12 @@ public class ControlPanel : MonoBehaviour {
             button.interactable = enabled;
             // Animation
         }
+    }
+
+    public void SetTime(float time) {
+        int minutes = (int)(time / 60);
+        int seconds = (int)(time % 60);
+
+        timer.text = minutes + ":" + seconds.ToString("D2");
     }
 }
